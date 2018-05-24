@@ -1,0 +1,20 @@
+In der Vorlesung wurden zwei unterschiedliche Strategien "Generiere und Teste" und "Contraint Logic Programming" zur Erstellung von Prolog-Programmen vorgestellt.
+
+a) Erklären Sie den "Generiere und Teste"-Strategie
+
+Der Grundgedanke von "Generiere und Teste" ist recht simpel: Zunächst werden mit dieser Strategie alle möglichen Lösungen generiert, im Anschluss werden alle dieser Lösungen getestet. 
+Hier muss ggf. der Wertebereich der Ausprägungen definitert werden, genauso alle Möglichkeiten der Kombinationen. Anschließend werden die richtigen Kombinationn der Ausprägungen definiert.
+
+b) Erklären Sie den "Constraint Logic Programming"-Strategie
+
+Im worst case (Generiere und Teste) werden alle möglichen Paare mittel Backtracking überprüft - Mittels Constraint Logic Programming werden die Möglichkeiten im Vorfeld bereits eingeschränkt (Constraint Solver). Finden wir im Anschluss eine endliche Anzahl von Lösungskandidaten, müssen diese getestet werden. 
+
+c) Gehen Sie auf Unterschiede zwischen den beiden Strategien ein! Geben Sie je ein Anwendungsbeispiel, bei dem sie eher die "Generiere und Teste"-Strategie bzw. die "Contraint Logic Programming"-Strategie anwenden würden!
+
+Vorab: Es ist etwas verwirrend, da wir sowohl Contraint, als auch Constraint Logic Programming in der Vorlesung finden. Handelt es sich hier um einen simplen Rechtschreibfehler, oder nicht? (In dieser Aufgabe gibt es ja ebenfalls beides, auch auf einigen Seiten im Netz konnte ich beides finden) - Da mir das englische Wort "contraint" nicht bekannt ist, gehe ich im Folgenden davon aus, dass es sich um einen Rechtschreibfehler handelt. 
+
+Generiere und Teste hat eine höhere Laufzeit. Mit dieser Methode werden sämtliche möglichen Ergebnisse generiert und getestet, während man bei CLP nur einen bestimmten Wertebereich betrachtet. Generiere und Teste ist eine Art "Worst Case" von CLP, denn ist der Wertebereich der CLP leer (oder abgearbeitet), erfolgt Backtracking und ein neuer Wertebereich wird erstellt. Nicht anwendbare Constraints werden für die spätere Verwendung eingefroren. 
+
+Das Generieren und Testen eignet sich eher für Beispielsweise das N-Damen-Problem (Teillösungen lassen sich aufgrund der ausschließlich binären Bedingungen sehr leicht überprüfen) ( https://de.wikipedia.org/wiki/Damenproblem )
+
+CLP eignet sich immer dann, wenn man einen eingeschränkten Wertbereich hat, beispielsweise bei der Lösung eines Sudokus. 

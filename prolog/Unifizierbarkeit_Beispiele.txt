@@ -1,0 +1,40 @@
+Geben Sie zu folgenden Termen A und B an, ob sie jeweils unifizierbar sind. Gegeben Sie bei Unifizierbakeit einen möglichen Unifikator σ an. Es wird die Prolog-Notation verwendet, d.h. Variablen beginnen mit einem Großbuchstaben, Funktoren, Relationen und Bezeichner mit einem Kleinbuchstaben.
+
+1. A=Bread; B = fish
+Unifizierbar
+σ(Bread = fish)
+
+2. A=bread; B = fish
+Nicht unifizierbar, da beides nur Bezeichner sind. 
+
+3. A=eatWith(bread,X); B=eatWith(Y,knife)
+Unifizierbar
+σ(eatWith(bread, knife))
+
+4. A=lunch(person(X),eatWith(Y,fork)); B=lunch(eatWith(Y,fork),person(X))
+Nicht unifizierbar
+
+5. A=lunch(person(X),eatWith(Y,fork)); B=lunch(person(paul),Z)
+Unifizierbar
+σ(lunch(person(paul), eatWith(Y, fork))
+
+6. A=lunch(person(x)); B=lunch(C,D)
+Nicht unifizierbar, da Funktoren eine unterschiedliche Stelligkeit haben
+
+7. A=food(X);B=food([bread, sausage, banana, apple
+Unifizierbar
+σ(food([bread, sausage, banana, apple])
+
+8. A=drinks([X,Y,Z|More);B=drinks([milk, water])
+Nicht unifizierbar, da unterschiedliche Stelligkeit der Funktoren (?)
+=> Liste B ließe sich an Liste A anschließen, allerdings fehlt hier |More zu Beginn der Liste B, weswegen dies nicht möglich ist. 
+
+9. A=mixDrinks([DrinkA,DrinkB],[DrinkC],[DrinkA,DrinkB,DrinkC];B=mixDrinks([DrinkA],[DrinkB,DrinkC],[DrinkA,DrinkB,DrinkC])
+Nicht unifizierbar, denn die Listen haben verschieden viele Einträge. 
+
+10. A=food(X);B=X
+Nicht unifizierbar, B ist in diesem Fall eine Variable (X), welche im Ausruck A vorkommt, dies verletzt Regel 2 (siehe Vlsg.)
+
+11. A=food(Y);B=X
+Unifizierbar, denn auch hier ist B eine Variable (X), die in diesem Fall aber nicht Bestandteil von A ist, da dieses mal Y verwendet wird. 
+σ(food(X))

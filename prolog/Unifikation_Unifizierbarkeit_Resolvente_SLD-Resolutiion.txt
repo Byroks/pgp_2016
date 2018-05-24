@@ -1,0 +1,25 @@
+Definieren Sie die Begriffe
+
+- Unifikation
+
+Als Unifikation bezeichnet man die Bindung von Variablen, um als Ergebnis deckungsgleiche Formeln zu erhalten. Die Auflösung der Unifikation erfolgt von links nach rechts, in der Suchstrategie arbeitet sie nach dem depth-first-Prinzip, wird also von oben nach unten durchlaufen. Grundsätzlich wird nur eine Möglichkeit betrachtet und als wahr angenommen. Eine andere Möglichkeit wird dann versucht, sobald mit der aktuellen keine Lösung gefunden werden konnte. 
+
+
+- Unifizierbarkeit
+
+Als Unifizierbarkeit bezeichnen wir, wenn es möglich ist, die Unifikation auf Terme anzuwenden.
+Zwei Terme sind dann unifizierbar, wenn sie den gleichen Wert haben oder beide Variablen sind. Auch lässt sich Unifikation anwenden, wenn s eine Variable und t ein Ausdruck ohne s ist.
+s und t können auch komplexe Terme sein, die dann als unifizierbar gelten, wenn die Funktoren gleich sind / die gleiche Stelligkeit besitzen, oder aber die Argumente der Funktoren aus beiden komplexen Termen paarweise unifizierbar sind. 
+
+- Resolvente
+
+Wir nehmen zunächst zwei Klauseln einer aussagenlogischen Formel in KNF an, k1 und k2. k1 besitzt ein positives Literal L, welches gleichzeitig negativ in k2 vorkommt. Eine Resolvente ist in diesem Fall die Vereinigung beider Klauseln ohne L. Gibt es kein komplementäres Literal, gibt es auch keine Resolvente. 
+Eine Resolvente ist zudem nicht äquivalent zu den Ausgangsklauseln. Im Kern zeigt die Resolvente, dass beide Ausgangsklauseln nur dann beide gleichzeitig erfüllbar sind, wenn es auch die Resolvente ist, dies ist eine notwendige Bedingung. 
+
+- SLD-Resolution
+
+Als SLD-Resolution wird ein Verfahren bezeichnet, um Antworten auf Ziele zu berechnen. Korrekt sind die Antworten, wenn sie im Sinne von Logik aus einem Programm folgen. Genauso ist es möglich, jede korrekte Antwort, welche logisch aus einem Programm folgt, mit der SLD-Resolution zu berechnen. 
+SLD-Resolution setzt sich zusammen aus:
+- Selektionsfunktion
+- Lineare Resolution
+- Definite Klauseln (Hornklauseln mit genau einem nicht-negativen Literal)

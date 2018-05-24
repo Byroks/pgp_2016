@@ -1,0 +1,34 @@
+a) Was ist Pipelining?
+
+Pipelining verfolgt das Prinzip, so viele Instruktionen parallel abzuarbeiten, wie Schritte in einem CPU-Zyklus vorhanden sind. In der Realität müssen allerdings die drei Arten der Abhängigkeit beachtet werden.
+
+Fluss-Abhängigkeit:
+Eine Instruktion berechnet ein Ergebnis, welches eine zweite Instruktion als Operant nutzt. 
+
+Anti-Abhängigkeit:
+Eine Instruktion verwendet ein Register als Operant, indem von einer anderen Instruktion ein Ergebnis abgelegt wird.
+
+Ausgabe-Abhängigkeit:
+Zwei verschiedene Instruktionen verwenden dasselbe Register zur Ablage ihres Ergebnisses. 
+
+Meist erfolgt eine automatische Ausführung auf den Prozessoren, sodass weiteres Zutun der Anwendungsprogrammierer nicht erforderlich ist. 
+Um die parallele Ausführung mehrerer Instruktionen zu gewährleisten, werden mehrere gleiche Ausführungseinheiten (z.B. ALUs) gebraucht, oder man verwendet größere Register z.B. zum gleichzeiigen Laden mehrerer Instruktionen.
+
+b) Welche Möglichkeiten gibt es, um if-then-else-Konstruktute möglichst effizient durch Pipelining auszuführen? 
+
+Jede Phase soll möglichst effizient ausgenutzt werden. Um die Wartezeiten bei if-then-else-Konstrukten zu umgehen, gibt es drei mögliche Parallelisierungstechniken.
+
+Out-of-Order Execution:
+Instruktionen werden aus dem weiteren Programmverlauf vorgezogen, dabei müssen Fluss-, Daten- und Ausgabeabhängigkeiten beachtet werden. 
+
+Shelving Buffer:
+Der Shelving Buffer bezeichnet einen Instruktionsspeicher für nicht-abhängige Instruktionen. Haben wir den Fall, dass eine Instruktion auf eine andere warten müsste, wird die wartende Instruktion in den Shelving Buffer übertragen und an ihrer Stelle erfolgt das Laden einer anderen Instruktion.
+
+Speculative Execution:
+Die Idee der speculative Execution ist dem Generieren und Testen zum Teil ähnlich. Die jeweiligen Ausführungszweige werden spekuliert bzw. erraten.
+Eager Execution:
+Beide Zweige werden berechnet und das überflüssige Ergebnis wird verworfen.
+Predictive Execution:
+Anhand bisher getroffener Entscheidungen wird ein Zweig ausgewählt und der andere verworfen.
+Lazy Execution:
+Die Ausführung der Zweige wird bis zur Auswertung der Bedingungen verschoben und andere Instruktionen werden ausgeführt. 

@@ -1,0 +1,23 @@
+a) Was bedeutet es, wenn eine Prolog-Relation auf ein Cut trifft.
+
+Alle bisherigen Unifikatoren (Substitutionen) werden bis zum Cut fixiert. Dadurch gibt es eine Einschränkung des Backtrackings, da Teilzweige abgeschnitten werden. Regeln werden dabei allerdings nicht abgebrochen. 
+
+b) Was bewirkt die Cut-Fail-Kombination in Prolog. Nennen und erklären Sie drei Anwendungsfälle bei denen die Cut-Fail-Kombination sinnvoll ist.
+
+Fail ist das absichtliche Fehlschlagen einer Regel. In Kombination mit Cut lassen wir ein Ziel fehlschlagen, ohne dabei nach alternativen Lösungen zu suchen. Sollte kein Ziel mehr gefunden werden, erfolgt ein Abbruch, dies dient zur Optimierung der Laufzeit. Cut-Fail bricht ein Programm also an einer bestimmten Stelle komplett ab.
+
+Anwendungsbeispiel 1:
+Unsortierte Zahlenliste von 1000 Zahlen -> Wir suchen eine Zahl und diese befindet sich z.B. an Stelle 8. Es ist hier sinnvoll, das Programm mittels Cut-Fail-Kombination direkt abbrechen zu lassen, anstatt die komplette Liste weiter zu durchlaufen. 
+
+Anwendungsbeispiel 2:
+Folgender binärer Suchbaum ist gegeben: 
+	 7
+   /  \ 
+  5    13
+ / \   / \
+4   6 12 16
+
+Suchen wir hier nach der Zahl 2, genügt es, den Baum bis zur 4 zu durchlaufen und anschließend mittels Cut-Fail das Programm zum Abbrechen zu bringen, da nach den Regeln binärer Suchbäume diese nicht mehr auftauchen kann, sie müsste sich nämlich an einem Zweig der 4 befinden. Da diese aber das Ende des Baumes ist, ist es nicht möglich, dass die 2 in einem anderen Zweig auftauchen kann.
+
+Anwendungsbeispiel 3: 
+Wir wollen überprüfen, ob das Berechnen der Fakultät einer Zahl mit einem bestimmten Wert übereinstimmt, in diesem Beispiel ob die Fakultät von 4 gleich 5 (über die Sinnhaftigkeit dieser Aussage lässt sich sicher streiten). Den Wert 5 erreichen wir bereits nach 1*2*3 (=6), es genügt also, das Programm an dieser Stelle zu terminieren, da wir bereits die Aussage als falsch annehmen können. 
